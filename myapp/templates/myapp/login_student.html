@@ -1,0 +1,18 @@
+{% extends 'myapp/base2.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Вход</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{% url 'myapp:student_registration' %}">Зарегистрироваться </a>
+{% endblock %}
+
+

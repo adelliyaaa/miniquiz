@@ -1,0 +1,21 @@
+{% extends 'myapp/base3.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<h3 class="my-4">Все модули</h3>
+<div class="row">
+    {% for category in data %}
+    <div class="col-md-4">
+        <div class="card">
+            <a href="{% url 'myapp:category-questions' category.id %}"><img src="{{category.image.url}}" class="card-img-top" alt="{{category.title}}"></a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'myapp:category-questions' category.id %}">{{category.title}}</a></h5>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

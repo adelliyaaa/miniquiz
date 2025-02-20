@@ -1,0 +1,53 @@
+{% extends 'myapp/base2.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <style>
+        .module {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .module h3 {
+            color: #333;
+        }
+
+        .module p {
+            color: #555;
+        }
+
+        .module img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .module a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+
+    <h1>Доступные модули</h1>
+    {% if theories %}
+        {% for el in theories %}
+            <div class="module">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.content|linebreaksbr }}</p>
+                {% if el.image %}
+                    <a href="#"><img src="{{ el.image.url }}" alt="{{ el.title }}" /></a>
+                {% endif %}<br>
+                <a href="{{ el.video_url }}">Видеоурок</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Нет доступных уроков</p>
+    {% endif %}
+{% endblock %}

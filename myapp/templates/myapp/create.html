@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+Создать
+{% endblock %}
+
+
+{% block content %}
+    <h1>Создать </h1>
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form }}<br>
+<!--        <button type="submit" class="btn btn-success">Добавить</button>-->
+        <button class="btn btn-primary py-2" type="submit">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+
+{% endblock %}
+
+

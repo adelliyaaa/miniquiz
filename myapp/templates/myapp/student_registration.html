@@ -1,0 +1,30 @@
+{% extends 'myapp/base2.html' %}
+
+{% block title %}
+Создать
+{% endblock %}
+
+
+{% block content %}
+    <h1>Регистрация ученика </h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.first_name }} Имя
+        </div> <br>
+        <div>
+            {{ form.last_name }} Фамилия
+        </div> <br>
+        <div>
+            {{ form.password }} Пароль
+        </div><br>
+
+        <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+        <span>{{ error }}</span>
+    </form>
+<!--    <p class="mt-5 mb-3 text-body-secondary">© 2024</p>-->
+
+{% endblock %}
+
+
+
